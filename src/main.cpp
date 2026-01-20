@@ -2,6 +2,10 @@
 #include <bn_color.h>
 #include <bn_core.h>
 #include <bn_keypad.h>
+#include <bn_sprite_ptr.h>
+#include <bn_sprite_items_dot.h>
+#include <bn_vector.h>
+#include <bn_math.h>
 
 
 int main() {
@@ -9,6 +13,27 @@ int main() {
     bn::core::init();
 
     bn::backdrop::set_color(bn::color(0, 0, 0));
+
+    bn::vector<bn::sprite_ptr, 100> circles = {};
+
+
+    for(int y = -40; y <=40; y += 10){
+
+        for(int x = -40; x <= 40; x += 10) {
+            circles.push_back(bn::sprite_items::dot.create_sprite(x, y));
+        }
+    }
+
+
+    // for(int i = 1; i <= 6; i+=1) {
+    //     bn::fixed angle = 360/6 * i;
+    //     bn::fixed radius = 40;
+
+
+    //     circles.push_back(bn::sprite_items::dot.create_sprite(bn::cos(angle)*radius, bn::sin(angle)*radius));
+    // }
+
+   
     
     
     
@@ -42,5 +67,8 @@ int main() {
 
         bn::core::update();
     }
+
+
+    
 
 }
