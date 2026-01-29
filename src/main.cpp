@@ -24,15 +24,6 @@ int main() {
         }
     }
 
-
-    // for(int i = 1; i <= 6; i+=1) {
-    //     bn::fixed angle = 360/6 * i;
-    //     bn::fixed radius = 40;
-
-
-    //     circles.push_back(bn::sprite_items::dot.create_sprite(bn::cos(angle)*radius, bn::sin(angle)*radius));
-    // }
-
    
     
     
@@ -63,6 +54,28 @@ int main() {
             blue = 0;
             bn::backdrop::set_color(bn::color(red, green, blue));
         }
+
+        if(bn::keypad::down_held()){
+            for(int i = 0; i < 20; i++){
+                circles[i].set_vertical_scale(2);
+            }
+        } else {
+            for(int i = 0; i < 20; i++){
+                circles[i].set_vertical_scale(1);
+            }
+        }
+
+        // if(bn::keypad::left_held()){
+        //     for(int i = 0; i < 100; i+=10){
+        //         circles[i].set_horizontal_scale(2);
+        //     }
+        // } else {
+        //     for(int i = 0; i < 100; i+=10){
+        //         circles[i].set_horizontal_scale(1);
+        //     }
+        // }
+
+
 
 
         bn::core::update();
